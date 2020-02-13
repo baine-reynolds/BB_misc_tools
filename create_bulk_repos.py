@@ -3,12 +3,13 @@ import json
 import concurrent.futures
 from time import sleep
 
+__author__ = ["Aaron Levinson", "Michael Walker"]
+
 executor = concurrent.futures.ThreadPoolExecutor()
 tasks = []
 
 def start():
-    count = 0
-    API_ENDPOINT = "" #project endpoint
+    API_ENDPOINT = "" # project endpoint
     api_login = ""
     api_password = ""
     session = requests.Session()
@@ -21,12 +22,12 @@ def start():
 
 def threaded_create(x, API_ENDPOINT, session):
     # Create
-    #print("Creating repo "+""+str(x))
-    #data = {'name': x}
-    #session.post(API_ENDPOINT, json=data)
+    print("Creating repo "+""+str(x))
+    data = {'name': x}
+    session.post(API_ENDPOINT, json=data)
     # Delete
-    print("Deleting repo "+""+str(x))
-    session.delete(API_ENDPOINT+"/"+str(x))
+    #print("Deleting repo "+""+str(x))
+    #session.delete(API_ENDPOINT+"/"+str(x))
 
-    start()
 if __name__ == '__main__':
+    start()
